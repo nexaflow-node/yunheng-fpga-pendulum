@@ -1,0 +1,10 @@
+impl/
+gwsynthesis/
+*.fs
+*.gprj.user
+*.csv
+captures/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db

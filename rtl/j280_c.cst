@@ -1,0 +1,69 @@
+// =============================================================================
+// J280 实板管脚约束 (GW2A-LV55PG484C8/I7)
+// 依据: Balance_Ctrl 原理图 + Interface_test_new (用户板已验证)
+// =============================================================================
+IO_LOC "clk_50m" M19;
+IO_PORT "clk_50m" IO_TYPE=LVCMOS33 PULL_MODE=NONE;
+IO_LOC "rst_n" AB3;
+IO_PORT "rst_n" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+// 按键 = Interface_test key_sw (SW1/SW2/SW3)
+IO_LOC "key_zero_calib" T18;
+IO_PORT "key_zero_calib" IO_TYPE=LVCMOS15 PULL_MODE=UP;
+IO_LOC "key_pos_clear" R18;
+IO_PORT "key_pos_clear" IO_TYPE=LVCMOS15 PULL_MODE=UP;
+IO_LOC "key_motor_toggle" U20;
+IO_PORT "key_motor_toggle" IO_TYPE=LVCMOS15 PULL_MODE=UP;
+
+// 电机桥 B = XH1 (Interface_test: BN1=V15, BN2=AA17, PWMB=V14)
+IO_LOC "motor_in1" V15;
+IO_LOC "motor_in2" AA17;
+IO_LOC "motor_pwm" V14;
+IO_PORT "motor_in1" IO_TYPE=LVCMOS33 DRIVE=8;
+IO_PORT "motor_in2" IO_TYPE=LVCMOS33 DRIVE=8;
+IO_PORT "motor_pwm" IO_TYPE=LVCMOS33 DRIVE=4;
+
+// 编码器 XH1
+IO_LOC "enc_a" Y20;
+IO_LOC "enc_b" AA20;
+IO_PORT "enc_a" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_PORT "enc_b" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+// 并行 ADC 3PA1030 (Interface_test fo_rip_top.cst 同脚)
+IO_LOC "adc_clk" G18;
+IO_LOC "adc_oe_n" H20;
+// LED (用户手册3.2.6: FPGA_LED1/2/3=U18/U19/U17, BANK_3=1.5V, 高电平点亮)
+IO_LOC "led_balance" U18;
+IO_LOC "led_calib_ok" U19;
+IO_LOC "led_motor_run" U17;
+IO_PORT "led_balance" IO_TYPE=LVCMOS15 DRIVE=4;
+IO_PORT "led_calib_ok" IO_TYPE=LVCMOS15 DRIVE=4;
+IO_PORT "led_motor_run" IO_TYPE=LVCMOS15 DRIVE=4;
+IO_LOC "led_rsvd" T17;
+IO_PORT "led_rsvd" IO_TYPE=LVCMOS15 DRIVE=4;
+
+// UART 调试遥测 (官方 Interface_test_new/fo_rip_top.cst：FPGA TX=K20，RX=L20)
+IO_LOC "uart_tx" K20;
+IO_PORT "uart_tx" IO_TYPE=LVCMOS33 DRIVE=4;
+IO_LOC "adc_data_in[9]" E19;
+IO_LOC "adc_data_in[8]" G17;
+IO_LOC "adc_data_in[7]" G19;
+IO_LOC "adc_data_in[6]" H19;
+IO_LOC "adc_data_in[5]" H18;
+IO_LOC "adc_data_in[4]" D19;
+IO_LOC "adc_data_in[3]" J19;
+IO_LOC "adc_data_in[2]" J20;
+IO_LOC "adc_data_in[1]" M21;
+IO_LOC "adc_data_in[0]" L21;
+IO_PORT "adc_clk" IO_TYPE=LVCMOS33 PULL_MODE=NONE DRIVE=8;
+IO_PORT "adc_oe_n" IO_TYPE=LVCMOS33 PULL_MODE=NONE;
+IO_PORT "adc_data_in[9]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_PORT "adc_data_in[8]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_PORT "adc_data_in[7]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_PORT "adc_data_in[6]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_PORT "adc_data_in[5]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_PORT "adc_data_in[4]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_PORT "adc_data_in[3]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_PORT "adc_data_in[2]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_PORT "adc_data_in[1]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_PORT "adc_data_in[0]" IO_TYPE=LVCMOS33 PULL_MODE=UP;
